@@ -1,47 +1,55 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+<!-- <script setup>
+import { ref, watch } from 'vue'
+const count = ref(0)
+const name = ref("Remilia")
+const increCount = () => count.value++
+const updateName = () => {
+  name.value = name.value + "_" + count.value
+}
+
+// 侦听
+// watch(count, (newValue, oldValue) => {
+//   console.log("newValue: " + newValue + ", oldValue: " + oldValue)
+// })
+watch([count, name],
+  ([newCount, newName], [oldCount, oldName]) => {
+    console.log("Count: " + oldCount + " => " + newCount)
+    console.log("Name: " + oldName + " => " + newName)
+  },
+  {
+    // 立即执行
+    immediate: true
+  })
+
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <button @click="increCount">{{ count }}</button>
+  <button @click="updateName">{{ name }}</button>
+</template> -->
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
+<script setup>
+import { ref, watch } from 'vue'
+const state = ref({ count: 1, age: 18 })
+const updateStateCount = () => state.value.count++
 
-  <main>
-    <TheWelcome />
-  </main>
+watch(state, (newValue, oldValue) => {
+  console.log("State: " + JSON.stringify(oldValue) + " => " + JSON.stringify(newValue))
+}, {
+  deep: true
+})
+</script>
+
+<template>
+  <button @click="updateStateCount">{{ state.count }}</button>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+<style>
+button {
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: 800;
+  color: blue;
 }
 </style>
