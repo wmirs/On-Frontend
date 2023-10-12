@@ -17,6 +17,7 @@ const app = Vue.createApp({
       specialCount: 0,
       gameIsOver: false,
       winner: '',
+      battleLogs: [],
     };
   },
   computed: {
@@ -62,11 +63,22 @@ const app = Vue.createApp({
     }
   },
   methods: {
+    // 开始游戏，将属性初始化
+    startGame() {
+      this.playerHealth = 100;
+      this.monsterHealth = 100;
+      this.currentRound = 0;
+      this.specialCount = 0;
+      this.gameIsOver = false;
+      this.winner = '';
+      this.battleLogs = [];
+    },
     // player攻击monster。player的攻击力介于5和12
     attackMonster() {
       this.currentRound++;
       const attackValue = getRandomValue(5, 12);
       this.monsterHealth -= attackValue;
+      this.addBattleLog("Player", "attack", attackValue)
       this.attackPlayer() // Monster反击
     },
     // player特殊攻击monster。攻击力介入10和25，特殊攻击不算回合
@@ -76,6 +88,7 @@ const app = Vue.createApp({
         this.specialCount--;
         const attackValue = getRandomValue(10, 25);
         this.monsterHealth -= attackValue;
+        this.addBattleLog("Player", "specialAttack", attackValue)
         this.attackPlayer() // Monster反击
       }
     },
@@ -84,8 +97,10 @@ const app = Vue.createApp({
       this.currentRound++;
       const healValue = getRandomValue(8, 20)
       if(this.playerHealth + healValue >= 100) {
+        this.addBattleLog("Player", "heal", (100 - this.playerHealth))
         this.playerHealth = 100;
       }else {
+        this.addBattleLog("Player", "heal", healValue)
         this.playerHealth += healValue;
       }
       this.attackPlayer() // Monster反击
@@ -94,7 +109,23 @@ const app = Vue.createApp({
     attackPlayer() {
       const attackValue = getRandomValue(8, 15);
       this.playerHealth -= attackValue;
+      this.addBattleLog("Monster", "attack", attackValue)
     },
+    // 直接投降。将玩家的血量设置为0
+    playerSurrender() {
+      this.playerHealth = 0;
+    },
+    // 添加战斗日志
+    addBattleLog(who, what, value) {
+      // 每次战斗日志放在最前面
+      this.battleLogs.unshift(
+        {
+          actionBy: who,
+          actionType: what,
+          actionValue: value
+        }
+      );
+    }
   }
 });
 app.mount("#game");
