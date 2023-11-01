@@ -1,0 +1,75 @@
+{
+    // 所有配置: https://prettier.io/docs/en/options
+    // 每行代码
+    "printWidth": 80,
+    // 制表符(tab)等于的空格数
+    "tabWidth": 2,
+    // 使用制表符缩进，而不是空格缩进
+    "useTabs": false,
+    // 使用单引号而不是双引号
+    "singleQuote": true,
+    // JSX中使用单引号而不是双引号
+    "jsxSingleQuote": true,
+    // 在所有代码语句的末尾添加分号
+    "semi": true,
+    /**
+    * 指定添加尾后逗号的方式
+    *     none: 无尾后逗号
+    *     es5: 在 ES5 中有效的尾后逗号（如对象与数组等）
+    *     all: 尽可能添加尾后逗号（如函数的参数列表）
+    */
+    "trailingComma": "es5",
+    // 在对象字面量的花括号内侧使用空格作为间隔
+    "bracketSpacing": true,
+    /**
+    * 对象字面量中的属性名引号添加方式
+    *     as-needed: 只在需要的情况下加引号
+    *     consistent: 有一个需要引号就给其他都统一加上
+    *     preserve: 保留用户输入的引号
+    * quoteProps=preserve && singleQuote=false && parser=json5 双引号将始终作用于字符串
+    */
+    "quoteProps": "as-needed",
+    /**
+    * 箭头函数仅有一个参数时，参数是否添加括号
+    *    always: (x) => x
+    *    avoid: x => x
+    */
+    "arrowParens": "always",
+    // 会在 HTML、JSX、Vue 和 Angular 中格式化为每个属性单独占一行
+    "singleAttributePerLine": true,
+    // 把多行的 HTML (包括HTML、JSX、Vue和Angular)元素的 `>` 放在最后一个属性的末尾，而不是另起一行(自闭合标签不受该选项控制)
+    "bracketSameLine": false,
+    /**
+    * HTML 文件的[空白字符敏感度](https://prettier.io/blog/2018/11/07/1.15.0#whitespace-sensitive-formatting)
+    *     css: 以 CSS 的 `display` 属性为准
+    *     strict: 空白字符敏感
+    *     ignore: 空白字符不敏感
+    */
+    "htmlWhitespaceSensitivity": "css",
+    // 缩进 Vue SFC 文件中的 `<script>` 和 `<style>` 标签
+    "vueIndentScriptAndStyle": true,
+    /**
+    * 控制嵌入的其他语言代码格式化
+    *     off: 从不自动格式化嵌入代码
+    *     auto: 如果 Prettier 可以识别嵌入代码，则格式化
+    */
+    "embeddedLanguageFormatting": "auto",
+    /**
+    * 指定 Prettier 使用的换行符
+    *     lf: `\n`，Linux、MacOS和git仓库中常见
+    *     crlf: `\r\n`，Windows上常见
+    *     cr: `\r`，很少使用
+    *     auto: 使用现有的行结尾(通过查看第一行之后使用的内容来标准化一个文件中的混合值)
+    */
+    "endOfLine": "lf",
+    /**
+    * Prettier 可以限制只对包含特定注释的文件进行格式化，这个特定的注释为`@prettier`或`@format`
+    * 对于那些大型的，尚未采用 Prettier 的代码仓库逐步引入 Prettier 非常有用
+    */
+    "requirePragma": false,
+    /**
+    * Prettier 可以在文件头部插入特定的 `@format` 标记以表示该文件已被 Prettier 格式化过
+    * 通常和`requirePragma`配合使用
+    */
+    "insertPragma": false
+}
