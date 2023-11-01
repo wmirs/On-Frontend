@@ -10,7 +10,7 @@
   "bracketSpacing": true,
   "quoteProps": "as-needed",
   "arrowParens": "always",
-  "singleAttributePerLine": true,
+  "singleAttributePerLine": false,
   "bracketSameLine": false,
   "htmlWhitespaceSensitivity": "css",
   "vueIndentScriptAndStyle": true,
