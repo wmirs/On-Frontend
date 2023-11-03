@@ -1,7 +1,6 @@
 <script>
-  import { computed } from 'vue';
+  import TheHeader from './components/layouts/TheHeader.vue';
   import LearningResources from './components/learning-resources/LearningResources.vue';
-  import L0SFC from './components/pi/L0SFC.vue';
   export default {
     data() {
       return {
@@ -22,24 +21,14 @@
         message: 'Remilia Hello',
       };
     },
-    methods: {
-      updateMessage() {
-        this.message = 'HelloWorld' + new Date();
-      },
-    },
+    methods: {},
     components: {
       LearningResources,
-      L0SFC,
-    },
-    provide() {
-      return {
-        message: computed(() => this.message),
-      };
+      TheHeader,
     },
   };
 </script>
 <template>
+  <the-header title="RememberMe"></the-header>
   <learning-resources :resources="learningResources"></learning-resources>
-  <L0SFC />
-  <button @click="updateMessage">Update Message</button>
 </template>

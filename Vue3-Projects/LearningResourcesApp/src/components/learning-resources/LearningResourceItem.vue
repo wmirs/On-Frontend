@@ -8,14 +8,16 @@
 </script>
 <template>
   <li>
-    <div>
-      <h3>{{ resource.title }}</h3>
-      <button>Delete</button>
-    </div>
-    <p>{{ resource.description }}</p>
-    <nav>
-      <a :href="resource.link" target="_blank">View Resource</a>
-    </nav>
+    <base-card>
+      <div class="header">
+        <h3>{{ resource.title }}</h3>
+        <base-button mode="flat">Delete</base-button>
+      </div>
+      <p>{{ resource.description }}</p>
+      <nav>
+        <a :href="resource.link" target="_blank">View Resource</a>
+      </nav>
+    </base-card>
   </li>
 </template>
 <style scoped>
@@ -23,12 +25,12 @@
     margin: auto;
     max-width: 40rem;
   }
-  div {
+  .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  div h3 {
+  .header h3 {
     font-size: 1.25rem;
     margin: 0.5rem 0;
   }
