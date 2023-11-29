@@ -1,7 +1,7 @@
 <script>
   import LearningResourceItem from './LearningResourceItem.vue';
   export default {
-    props: ['resources'],
+    inject: ['resources'],
     components: {
       LearningResourceItem,
     },

@@ -12,6 +12,7 @@
     font-family: inherit;
     background-color: #3a0061;
     border: 1px solid #3a0061;
+    border-radius: 0.2rem;
     color: white;
     cursor: pointer;
   }
