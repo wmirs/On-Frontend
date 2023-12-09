@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vue Basics</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <section id="personal">
+      <h2>{{ name }}</h2>
+      <p>{{ age }}</p>
+      <p>{{ age + 5}} in 5 years</p>
+      <p>Favorite Number: {{ getMyFavoriteNum() }}, {{ favoriteNum }}</p>
+      <div>
+        <img v-bind:src="imageUrl" />
+      </div>
+      <input type="text" v-bind:value="name" />
+    </section>
+  </body>
+</html>

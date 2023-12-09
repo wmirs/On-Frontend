@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vue Events</title>
+    <link
+      rel="stylesheet"
+      href="styles.css"
+    />
+    <script
+      src="https://unpkg.com/vue@3/dist/vue.global.js"
+      defer
+    ></script>
+    <script
+      src="app.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <header>
+      <h1>Vue Events</h1>
+    </header>
+    <section id="events">
+      <h2>Events in Action</h2>
+      <button @click="add">Add</button>
+      <button @click="remove">Remove</button>
+      <p>Result: {{counter}}</p>
+    </section>
+  </body>
+</html>
